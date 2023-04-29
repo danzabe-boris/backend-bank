@@ -1,0 +1,29 @@
+Notre objectif est de mettre sur pied un ensemble de services REST avec les contraintes suivantes:
+- Tous les services sont accessibles sous l'URL /api
+- Nous avons les services pour les ressources suivantes:
+  * clients
+	+ /api/clients?page=x&size=y avec GET pour avoir la liste des clients
+	+ /api/clients/search?nom=a&page=x&size=y avec GET permet de renvoyer la liste des clients dont le nom correspond à a
+        + /api/clients/{id} avec GET pour afficher les informations sur le client dont l'id est au niveau de l'URL
+ 	+ /api/clients/{id} avec PUT pour mettre à jour les informations concernant le client dont l'id est au niveau de l'URL
+	+ /api/clients/{id} avec DELETE pour supprimer le client dont l'id est en paramètre
+	+ /api/clients avec POST permet de créer un client avec les informations qui se trouvent au niveau du corps de la requête
+	+ /api/clients/{id}/comptes avec GET permet de renvoyer tous les comptes du client dont l'id se trouve au niveau de l'URL
+	+ /api/clients/{id}/comptes avec POST permet de créer un nouveau compte au client dont l'id est au niveau de l'URL
+	+ /api/clients/{id}/comptes/{id} avec PUT permet de mettre à jour le compte d'un client (les ids sont au niveau de l'URL)
+	+ /api/clients/{id}/comptes/{id} avec DELETE permet de supprimer le compte d'un client (les ids sont au niveau de l'URL)
+	+ /api/clients/{id}/comptes/{id} GET permet de renvoyer un compte spécifique d'un client.
+   * comptes
+	+ /api/comptes?page=x&size=y avec GET permet d'afficher une page d'un compte
+	+ /api/comptes/{id} avec GET permet de renvoyer un compte spécifique
+	+ /api/comptes/{id}/operations avec GET permet de renvoyer les opérations sur un compte dont l'id est au niveau de l'URL
+	+ /api/comptes/search?numero=x avec GET permet de renvoyer un compte dont le numéro est au niveau de l'URL
+   * operations
+	+ /api/operations?page=x&size=y avec GET renvoie la liste des opérations 
+	+ /api/operations?type=a&page=x&size=y avec GET renvoie la liste des opérations pour un type donnée
+   * utilisateurs
+	+ /api/utilisateurs?page=x&size=y avec GET renvoie la liste des utilisateurs
+	+ /api/utilisateurs avec POST permet de créer un nouvel utilisateur passé comme corps de la requête
+	+ /api/utilisateurs/{id} avec GET permet de renvoyer un utilisateur spécifique
+	+ /api/utilisateurs/{id} avec PUT permet de mettre à jour un utilisateur
+	+ /api/utilisateurs/{id} avec DELETE permet de supprimer un utilisateur
